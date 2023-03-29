@@ -6,4 +6,4 @@ while condicao <= 10:
     print(condicao)
     if condicao == 5:
         break
-    condicao += 1
+    condicao += 2
