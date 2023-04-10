@@ -13,7 +13,6 @@ while True:
       else:
         lista_compras.append(item)
         continue 
-    
   elif escolha == 'l':
     for i, item in enumerate(lista_compras, start=1):
         print(i, item)
