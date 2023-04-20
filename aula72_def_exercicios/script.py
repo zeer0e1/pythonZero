@@ -5,9 +5,22 @@
 # da variavel
 
 def multi_numeros(*numeros):
-  total = 0
+  total = 1
   for numero in numeros:
-    total += numero * numero
+    total *= numero
   return total
+   
 
-print(multi_numeros(2,2))
+multi = multi_numeros(2,3,4,5,6)
+print(multi)
+
+# Crie uma função que fala se o número é par ou impar
+# retorne se o número é par ou impar
+
+def chek_number(number):
+  if number % 2 == 0:
+    print(f'The number {number} is even')
+  else:
+    print(f'The number {number} is uneven')
+
+chek_number(3)
