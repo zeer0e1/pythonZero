@@ -21,6 +21,6 @@ produtos = [
 ]
 
 print(produtos)
-novos_produtos = [ {**produto, 'preco': produto['preco'] * 1.05} if produto['nome'] == 'p1' else {**produto} for produto in produtos]
+novos_produtos = [{**produto, 'preco': produto['preco'] * 1.05} for produto in produtos]
 
 print(novos_produtos)
