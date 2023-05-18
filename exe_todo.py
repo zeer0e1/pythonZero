@@ -1,6 +1,21 @@
+import json
+import os
+
 to_do_list = []
 recycle_todo = []
 commands = ['Listar','Desfazer','Refazer','Sair']
+file_name = 'todolist.json'
+list_save = []
+
+
+def verify_todolist_exist():
+  if os.path.isfile(file_name):
+        print('arquivo existe')
+        with open(file_name,'r',encoding='utf8') as arquivo:
+            list_save = list(json.load(arquivo))
+            to_do_list.extend(list_save)
+            
+
 
 def view_list ():
     print('\n' * 2)
@@ -19,7 +34,6 @@ def undo_task():
       view_list()
     else:
         print('Não existe mais nada para Desfazer.')
-  
 
 def redo_task():
     if recycle_todo:
@@ -28,6 +42,13 @@ def redo_task():
       view_list()
     else:
         print('Não tem mais nada na Refazer.')
+
+def save_todo_list():
+    list_save.extend(to_do_list)
+    with open('todolist.json','w+') as arquivo:
+        json.dump(list_save,arquivo)
+        
+verify_todolist_exist()
 
 while True:
     print('Comandos: Listar,Desfazer,Refazer,Sair')
@@ -43,6 +64,7 @@ while True:
             redo_task()
             continue
         elif choice == 'Sair':
+            save_todo_list()
             break
     else:
         add_todo(choice)
