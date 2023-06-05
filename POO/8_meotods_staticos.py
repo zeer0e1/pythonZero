@@ -5,3 +5,4 @@
 class Pessoa:
   @staticmethod
   def funcao_que_esta_na_classe()
+  
